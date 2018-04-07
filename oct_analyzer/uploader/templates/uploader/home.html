@@ -1,0 +1,15 @@
+{% load staticfiles %}
+{% include "uploader/base.html" %}
+<form name = "form" enctype = "multipart/form-data" 
+         action = "" method = "POST" >{% csrf_token %}
+         {{form.as_p}}
+         <input type="submit" value="Upload"/>
+         <br> <br>
+         {{saved}}
+         <img src="{{MEDIA_URL}}{{imagefile}}">
+</form>
+<form name="get_report" action = "{% url 'post_upload' %}" method="POST">
+	{% csrf_token %}
+	<input type="submit" value="Submit"/>
+         <br> <br>
+ </form>
