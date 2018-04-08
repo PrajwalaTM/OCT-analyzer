@@ -4111,11 +4111,13 @@ nav .button-collapse i {
 }
 
 nav .brand-logo {
-  position: absolute;
-  color: #fff;
+  position: left;
+  left:-15%;
+  color: #29b0e6;
   display: inline-block;
-  font-size: 2.1rem;
-  padding: 0;
+  font-size: 2.5rem;
+  padding: 20px;
+  top:10px;
   white-space: nowrap;
 }
 
@@ -4127,7 +4129,7 @@ nav .brand-logo.center {
 
 @media only screen and (max-width: 992px) {
   nav .brand-logo {
-    left: 50%;
+    left: 70%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }

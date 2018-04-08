@@ -2,14 +2,26 @@
 {% include "uploader/base.html" %}
 <form name = "form" enctype = "multipart/form-data" 
          action = "" method = "POST" >{% csrf_token %}
+         <div class="row">
+         <div class="col s4">
          {{form.as_p}}
-         <input type="submit" value="Upload"/>
+        </div>
+        <div class="col s4">
+                <br><br><br>
+         <input type="image" value="Upload" src="{% static 'images/cloudupload.png'%}" alt="Submit" style="width:60px;height:60px;"/>
          <br> <br>
-         {{saved}}
-         <img src="{{MEDIA_URL}}{{imagefile}}">
-</form>
-<form name="get_report" action = "{% url 'post_upload' %}" method="POST">
-	{% csrf_token %}
-	<input type="submit" value="Submit"/>
-         <br> <br>
- </form>
+        </div>
+         </div>
+         <div class="row">
+         <div class="col s8">
+         <img style = "padding-left: 520px;" src="{{MEDIA_URL}}{{imagefile}}"/>
+         </div>
+        </form>
+         <div class="col s4">
+        <form name="get_report" action = "{% url 'post_upload' %}" method="POST">
+        {% csrf_token %}
+        <br> <br> <br> <br> <br> <br> <br> 
+        <input type="image" value="Submit" src="{% static 'images/next2.png'%}" style="width:60px;height:60px;"/>
+        </form>
+         </div>
+        </div>

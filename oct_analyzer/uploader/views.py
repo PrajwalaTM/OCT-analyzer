@@ -36,4 +36,6 @@ def post_upload(request):
     first,name = str(imagefile).split("/")
     results = predict(path,results_path,name)
     #im = Image.fromarray(results['final_image'])
-    return render(request, 'uploader/upload.html',{'results':results})
+    input_path = str(imagefile)
+    output_path = "results/"+name
+    return render(request, 'uploader/upload.html',{'results':results,'output_path':output_path,'input_path':input_path})

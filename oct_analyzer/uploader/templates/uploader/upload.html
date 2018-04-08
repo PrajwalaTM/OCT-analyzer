@@ -1,7 +1,42 @@
 {% load staticfiles %}
 {% include 'uploader/base.html' %}
 
-{% for key, value in results.items %}
-          {{ key }} 
-          {{ value }}
-{% endfor %}
+  <div class="row">
+        <div class="col s4">
+          <div class="card" style="width:100px;height:250px">
+            <div class="card-image">
+              <img style="width:100px;height:250px;" src="{{MEDIA_URL}}{{input_path}}">
+              <span class="card-title">OCT Scan</span>
+            </div>
+          </div>
+        </div>
+        <div class="col s4">
+                <div class="card" style="width:100px;height:250px">
+                  <div class="card-image">
+                    <img style="width:100px;height:250px;" src="{{MEDIA_URL}}{{output_path}}">
+                    <span class="card-title">Output</span>
+                  </div>
+                </div>
+              </div>
+    </div>
+<!--<img style = "padding-left: 320px;" src="{{output_path}}"/>-->
+<div class="row">
+    <div class="s6">
+<table class="centered">
+        <thead>
+          <tr>
+              <th data-field="layer">Retinal Layer</th>
+              <th data-field="count">Pixel Count</th>
+          </tr>
+        </thead>
+    
+          {% for key,value in results.items  %}
+          <tr>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table> 
+    </div>
+</div>
