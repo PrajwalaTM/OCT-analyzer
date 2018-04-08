@@ -26,7 +26,7 @@ from scipy import ndimage, misc
 from numpy import unravel_index
 from operator import sub
 import re
-#from django.conf import settings
+from django.conf import settings
 
 def predict(path,results_path,name):
     data_shape = 216*64
@@ -141,3 +141,17 @@ def predict(path,results_path,name):
     imsave(results_path+name,color)
     return pixel_count
 
+def plot_hist(result1,result2):
+    bins = np.arange(7)
+    x = np.array(result1.values())
+    y = np.array(result2.values())
+    # plt.hist([x, y], bins, label=['x', 'y'])
+    plt.bar(bins,x)
+    fig = plt.gcf()
+    plt.xticks(bins +.5 ,['l1','l2','l3','l4','l5','l6','l7'])
+    fig.savefig("/home/prajwala/Videos/oct_analyzer"+settings.MEDIA_URL+'plots/'+'results1.png')
+    plt.clf()
+    plt.bar(bins,y)
+    fig = plt.gcf()
+    plt.xticks(bins +.5 ,['l1','l2','l3','l4','l5','l6','l7'])
+    fig.savefig("/home/prajwala/Videos/oct_analyzer"+settings.MEDIA_URL+'plots/'+'results2.png')

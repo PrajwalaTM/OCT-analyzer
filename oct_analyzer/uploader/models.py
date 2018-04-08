@@ -9,3 +9,8 @@ class ImageModel(models.Model):
 
    def __str__(self):
         return self.name + ": " + str(self.image)
+   
+   def get_name(self):
+        return str(self.image)
+
+

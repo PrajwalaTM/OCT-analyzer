@@ -18,6 +18,11 @@
                   </div>
                 </div>
               </div>
+              <div class = "col s4">
+                <form action = "{% url 'compare' %}" method = "POST" >{% csrf_token %}
+                    <input type="image" value="Submit" src="{% static 'images/next2.png'%}" style="width:60px;height:60px;"/>
+                    </form>
+              </div>
     </div>
 <!--<img style = "padding-left: 320px;" src="{{output_path}}"/>-->
 <div class="row">
@@ -37,6 +42,6 @@
           </tr>
           {%endfor%}
         </tbody>
-      </table> 
+</table> 
     </div>
 </div>
